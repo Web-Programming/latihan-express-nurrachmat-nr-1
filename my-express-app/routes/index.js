@@ -19,8 +19,6 @@ router.post('/submit-contact', (req, res) => {
     const { name, email, message } = req.body;
     // Handle the form data (e.g., save to database, send an email, etc.)
     console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
-    
-    // Redirect or send a response
     res.render('thank-you', {title: 'Thank You', name : name}); 
 });
 
