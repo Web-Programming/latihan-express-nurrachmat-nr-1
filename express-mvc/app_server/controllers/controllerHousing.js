@@ -4,7 +4,7 @@ const Index = async (req,res) => {
     try {
         const housing = await Housing.find({});
         res.status(200).json(housing);
-        if(!mahasiswas){
+        if(!housing){
             res.status(400).json({message: "Collection is Empty"})
         }
     } catch (error) {
