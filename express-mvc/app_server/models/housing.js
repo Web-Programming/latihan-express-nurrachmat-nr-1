@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const housingSchema = new mongoose.Schema({
-    idhousing: {
-        type: Number,
+    id: {
+        type: String,
         required: true
     },
     name: {
