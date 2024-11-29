@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
+import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  router: Router = inject(Router);
+  authenticationService: AuthenticationService = inject(AuthenticationService);
 
   public credentials = {
     name: "",
@@ -27,11 +33,15 @@ export class LoginComponent {
 
   public doLogin(): void {
     this.authenticationService.login(this.credentials)
-      .then(() => {
-        this.router.navigateByUrl('/todo');
+      .then((res) => {
+        this.router.navigateByUrl('/');
       })
       .catch((error) => {
+        if(error?.message){
+          this.formError = error.message;
+        }else{
           this.formError = error?.error?.message;
+        }
       })
     }
 }

@@ -13,8 +13,10 @@ import { HousingService } from '../housing.service';
 export class HomeComponent {
   housingLocationList: HousingLocation[] = [];
   housingService: HousingService = inject(HousingService);
-  
-  constructor(){
+
+  constructor(
+
+  ){
     this.housingService.getAllHousingLocations()
     .then((listData: HousingLocation[]) =>{
       this.housingLocationList = listData;

@@ -11,7 +11,7 @@ import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
      <article >
-      <img class="listing-photo" [src]="housingLocation?.photo"
+      <img class="listing-photo" [src]="baseUrl + housingLocation?.photo"
         alt="Exterior photo of {{housingLocation?.name}}"/>
       <section class="listing-description">
         <h2 class="listing-heading">{{housingLocation?.name}}</h2>
@@ -43,8 +43,9 @@ import { FormGroup, FormControl, ReactiveFormsModule  } from '@angular/forms';
   styleUrl: './details.component.css'
 })
 export class DetailsComponent {
+  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
   route: ActivatedRoute = inject(ActivatedRoute);
-  housingLocationId = 0;
+  housingLocationId = "";
   housingService: HousingService = inject(HousingService);
   housingLocation: HousingLocation | undefined
   applyForm: FormGroup = new FormGroup({
@@ -54,7 +55,7 @@ export class DetailsComponent {
   })
 
   constructor(){
-    this.housingLocationId = Number(this.route.snapshot.params['id']);
+    this.housingLocationId = this.route.snapshot.params['id']; //Number(this.route.snapshot.params['id']);
     this.housingService.getHousingLocationById(this.housingLocationId)
       .then(location => {
         this.housingLocation = location;
