@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require('cors');
+
 //load mongodb db connection
 require('./app_server/models/db');
 require("./app_server/configs/passport"); //load file config
@@ -14,6 +14,7 @@ var usersRouter = require('./app_server/routes/users');
 var mahasiswasRouter = require('./app_server/routes/mahasiswas');
 var housingRouter = require('./app_server/routes/housing');
 
+var cors = require('cors');
 var app = express();
 app.use(cors())
 
