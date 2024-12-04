@@ -221,7 +221,7 @@ input {
 
 ## Mengimplementasikan Register API
 1. Buat **auth** interface
-- Buat interface bernama auth dengan command `ng g i storage`
+- Buat interface bernama auth dengan command `ng g i auth`
 
 Berikut script auth.ts:
 ```ts
