@@ -49,7 +49,7 @@ export class RegisterComponent {
           if(res.message != null){
             this.formError = res.message;
           }else if(res.token != null){
-            //this.authService.saveToken(res.token);
+            this.authService.saveToken(res.token);
             this.router.navigateByUrl('/');
           }else{
             this.formError = 'Register failed please try again';

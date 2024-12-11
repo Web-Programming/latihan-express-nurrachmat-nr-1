@@ -482,3 +482,14 @@ Contoh pada router detail :
   canActivate: [authGuardGuard]
 }
 ```
+
+## Video Recording
+()[]
+
+## Completed Project
+Kode lengkap dari materi ini dapat diambil di repository berikut pada branch auth
+
+## Latihan
+1. Buatlah fitur Add, Edit dan Delete Hosing
+2. Batasi akses ke menu dan routes ke component dengan memanfaatkan `<ng-template></ng-template>` dan guard
+
